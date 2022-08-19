@@ -1,10 +1,20 @@
 import { cloneDeep, merge } from "lodash"
 import { DefaultTheme as RNPDefaultTheme } from "react-native-paper"
+import color from "color"
 
 const defaultPrimaryColor = "#00f"
 
 export const DefaultTheme = {
-  colors: RNPDefaultTheme.colors,
+  colors: {
+    primary: "#6200ee",
+    accent: "#03dac4",
+    background: "#f6f6f6",
+    error: "#B00020",
+    foreground: "#000",
+    disabled: RNPDefaultTheme.colors.disabled,
+    placeholder: RNPDefaultTheme.colors.placeholder,
+    backdrop: RNPDefaultTheme.colors.backdrop,
+  },
   dark: false,
   fonts: { fontFamily: null },
   buttonStyles: {
@@ -108,5 +118,142 @@ export const DefaultTheme = {
 }
 
 export const createTheme = data => {
-  return cloneDeep(merge(cloneDeep(DefaultTheme), cloneDeep(data)))
+  const colors = {
+    primary: DefaultTheme.colors.primary,
+    accent: DefaultTheme.colors.accent,
+    background: DefaultTheme.colors.background,
+    error: DefaultTheme.colors.error,
+    foreground: DefaultTheme.colors.foreground,
+    disabled: DefaultTheme.colors.disabled,
+    placeholder: DefaultTheme.colors.placeholder,
+    backdrop: DefaultTheme.colors.backdrop,
+    // ...(data?.colors || {}),
+  }
+  const changedData = {
+    colors: colors,
+    dark: data?.dark ?? false,
+    fonts: { fontFamily: data?.fonts?.fontFamily ?? null },
+    buttonStyles: {
+      defaultMode: "contained",
+      shadow: false,
+      linear: false,
+      ...(data?.buttonStyles ?? {}),
+      textStyle: {
+        color: data?.colors?.foreground || DefaultTheme.colors.foreground,
+        fontSize: 15,
+        fontWeight: "700",
+        ...(data?.buttonStyles?.textStyle ?? {}),
+      },
+      containerStyle: {
+        backgroundColor: colors.primary,
+        borderRadius: 5,
+        paddingHorizontal: 20,
+        paddingVertical: 18,
+        ...(data?.buttonStyles?.containerStyle ?? {}),
+      },
+      linearProps: {
+        colors: [colors.primary, colors.primary],
+        start: { x: 0, y: 0 },
+        end: { x: 1, y: 1 },
+        useAngle: false,
+        angle: 0.5,
+        angleCenter: { x: 5, y: 5 },
+        ...(data?.buttonStyles?.linearProps ?? {}),
+      },
+      shadowProps: {
+        startColor: "#000",
+        finalColor: "#000",
+        distance: 10,
+        offset: [0, 0],
+        paintInside: true,
+        sides: ["left", "right", "top", "bottom"],
+        corners: ["topLeft", "topRight", "bottomLeft", "bottomRight"],
+        ...(data?.buttonStyles?.shadowProps ?? {}),
+      },
+    },
+    checkboxStyles: {
+      inActiveColor: "#72767D",
+      activeColor: colors.primary,
+      borderRadius: 6.5,
+      size: 16,
+      borderWidth: 1.5,
+      iconNode: null,
+      ...(data?.checkboxStyles ?? {}),
+      icon: { name: "check", type: "material", size: 8, ...(data?.checkboxStyles?.icon ?? {}) },
+    },
+    headerStyles: {
+      backgroundColor: colors.primary,
+      foregroundColor: colors.foreground,
+      height: 56,
+      paddingHorizontal: 20,
+      backIcon: { name: "arrow-back", type: "material", size: 24 },
+      backIconNode: null,
+      shadow: true,
+      ...(data?.headerStyles ?? {}),
+      title: {
+        style: { fontSize: 16, fontWeight: "700" },
+        defaultCenter: false,
+        ...(data?.headerStyles?.title ?? {}),
+      },
+      shadowProps: {
+        startColor: "#0000001B",
+        finalColor: "#00000000",
+        distance: 5,
+        radius: 0,
+        offset: [0, 0],
+        sides: ["bottom"],
+        ...(data?.headerStyles?.shadowProps ?? {}),
+      },
+    },
+    pickerSelectStyles: {
+      color: colors.foreground,
+      iconNode: null,
+      defaultMode: "dropdown",
+      ...(data?.pickerSelectStyles ?? {}),
+      icon: { name: "keyboard-arrow-down", type: "material", size: 24, ...(data?.pickerSelectStyles?.icon ?? {}) },
+    },
+    textInputStyles: {
+      placeholderTextColor: color(colors.foreground).alpha(0.38).hexa(),
+      selectionColor: color(colors.primary).alpha(0.33).hexa(),
+      changeHeadingOnFocus: false,
+      changeFocusBorder: true,
+      focusBorderWidth: 1,
+      focusedColor: colors.primary,
+      headingStyle: { color: colors.foreground, fontSize: 15, fontWeight: "400", paddingBottom: 12 },
+      shadow: true,
+      defaultBorderColor: "transparent",
+      borderRadius: 5,
+      errorStyle: { marginTop: 2, fontSize: 12, fontWeight: "700" },
+      leftError: false,
+      leftErrorMarginHorizontal: 10,
+      ...(data?.textInputStyles ?? {}),
+      style: {
+        paddingVertical: 0,
+        paddingHorizontal: 10,
+        color: colors.foreground,
+        ...(data?.textInputStyles?.style ?? {}),
+      },
+      shadowProps: {
+        startColor: "#0000000D",
+        finalColor: "#00000000",
+        distance: 4,
+        offset: [0, 2],
+        sides: ["bottom"],
+        ...(data?.textInputStyles?.shadowProps ?? {}),
+      },
+      containerStyle: {
+        paddingHorizontal: 15,
+        paddingVertical: 15,
+        borderRadius: 5,
+        height: Platform.OS == "ios" ? 50 : null,
+        alignItems: "center",
+        backgroundColor: "#fff",
+        flexDirection: "row",
+        width: "100%",
+        ...(data?.textInputStyles?.containerStyle ?? {}),
+      },
+    },
+  }
+
+  return changedData
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Platform, StyleSheet, TextInput as RNTextInput, View } from "react-native"
 import { Shadow } from "react-native-shadow-2"
 import { SvgXml } from "react-native-svg"
-import { useAppHook, useTheme } from "../utils/utilFuncs"
+import useTheme from "../hooks/useTheme"
 import TextFormatted from "./TextFormatted"
 
 export default function TextInput({

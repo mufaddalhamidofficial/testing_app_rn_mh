@@ -24,7 +24,7 @@ export interface ImageDimensionsResult {
  * @param headers headers to be passed to a remote URL resource.
  * @returns original image dimensions (width, height and aspect ratio).
  */
-export function useImageDimensions(
+export default function useImageDimensions(
   source: ImageDimensionsSource,
   headers?: ImageURISource["headers"],
 ): ImageDimensionsResult {

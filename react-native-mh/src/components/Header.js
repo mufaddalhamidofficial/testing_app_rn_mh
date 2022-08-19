@@ -1,9 +1,9 @@
 import React from "react"
 import { TouchableOpacity, View } from "react-native"
-import { useAppHook, useUiHook } from "../utils/utilFuncs"
 import TextFormatted from "./TextFormatted"
 import { Icon } from "react-native-elements"
 import { Shadow } from "react-native-shadow-2"
+import useAppHook from "../hooks/useAppHook"
 
 export default function Header({
   onPress,

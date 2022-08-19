@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react"
 import { LayoutChangeEvent } from "react-native"
 
-export function useLayout() {
+export default function useLayout() {
   const [layout, setLayout] = useState({
     x: 0,
     y: 0,

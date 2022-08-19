@@ -1,4 +1,5 @@
 import React from "react"
+import { ColorValue } from "react-native"
 import { PickerSelectProps } from "react-native-picker-select"
 
 interface CustomPickerSelectProps extends PickerSelectProps {

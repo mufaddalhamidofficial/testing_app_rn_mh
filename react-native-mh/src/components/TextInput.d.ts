@@ -14,8 +14,8 @@ interface CustomTextInputProps extends TextInputProps {
   right?: React.ReactNode
   readOnly?: boolean
   parentContainerStyle?: ViewStyle
-  shadowVisible?: Boolean
-  disabled?: Boolean
+  shadowVisible?: boolean
+  disabled?: boolean
 }
 
 export default function TextInput(props: CustomTextInputProps): React.ReactNode

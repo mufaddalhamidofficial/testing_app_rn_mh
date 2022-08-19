@@ -1,7 +1,7 @@
 import _ from "lodash"
 import React from "react"
 import { Text } from "react-native"
-import { useAppHook, useTheme } from "../utils/utilFuncs"
+import useTheme from "../hooks/useTheme"
 
 function TextFormatted({ children, style, fontFamily, ...props }) {
   const { theme } = useTheme()
@@ -18,7 +18,7 @@ function TextFormatted({ children, style, fontFamily, ...props }) {
     <Text
       {...props}
       style={[
-        { color: theme.colors.text },
+        { color: theme.colors.foreground },
         transformedStyle,
         {
           fontWeight: transformedStyle?.fontFamily || !fontFamily ? transformedStyle?.fontWeight : null,

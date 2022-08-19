@@ -2,7 +2,7 @@ import React from "react"
 import { Platform, StyleSheet, View } from "react-native"
 import { Icon } from "react-native-elements"
 import RNPickerSelect from "react-native-picker-select"
-import { useTheme } from "../utils/utilFuncs"
+import useTheme from "../hooks/useTheme"
 
 export default function PickerSelect({ size, style, color, mode, ...props }) {
   const {

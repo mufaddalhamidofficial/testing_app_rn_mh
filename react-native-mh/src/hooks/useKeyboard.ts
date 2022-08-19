@@ -12,7 +12,7 @@ const initialValue = {
   end: emptyCoordinates,
 }
 
-export function useKeyboard() {
+export default function useKeyboard() {
   const [shown, setShown] = useState(false)
   const [coordinates, setCoordinates] = useState<{
     start: undefined | ScreenRect

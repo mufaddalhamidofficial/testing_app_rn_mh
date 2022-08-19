@@ -14,7 +14,6 @@ interface ButtonProps {
   textStyle?: TextStyle
   style?: ViewStyle
   mode?: "outlined" | "contained" | "text"
-  color?: ColorValue
   linear?: boolean
   linearProps?: LinearGradientProps
   shadow?: boolean

@@ -104,7 +104,7 @@ function reducer(state: State, action: TimerActionsType): State {
   }
 }
 
-export const useTimer = ({
+const useTimer = ({
   autostart = false,
   endTime,
   initialStatus = "STOPPED",
@@ -186,3 +186,5 @@ export const useTimer = ({
 
   return { advanceTime, pause, reset, start, status, time }
 }
+
+export default useTimer

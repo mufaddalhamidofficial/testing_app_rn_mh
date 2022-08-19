@@ -1,8 +1,7 @@
 import { TouchableOpacity } from "react-native"
 import React from "react"
-import { useUiHook } from "../utils/utilFuncs"
-import { SvgXml } from "react-native-svg"
 import { Icon } from "react-native-elements"
+import useUiHook from "../hooks/useUiHook"
 
 export default function Checkbox({ selected, style, activeColor, inActiveColor, disabled, size, ...props }) {
   const {

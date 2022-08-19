@@ -3,8 +3,7 @@ import React from "react"
 import { ActivityIndicator, StyleSheet, TouchableOpacity, View } from "react-native"
 import LinearGradient from "react-native-linear-gradient"
 import { Shadow } from "react-native-shadow-2"
-import { useTheme } from "../utils/utilFuncs"
-import { useAppHook } from "../utils/utilFuncs"
+import useTheme from "../hooks/useTheme"
 import TextFormatted from "./TextFormatted"
 
 export default function Button({
