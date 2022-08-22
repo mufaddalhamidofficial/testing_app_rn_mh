@@ -1,7 +1,7 @@
 import React from "react"
 import { ScrollView, Text } from "react-native"
 import { Button, DefaultTheme, useNavigationHook, useUiHook } from "../../react-native-mh"
-import ButtonsTesting from "./ButtonsTesting"
+import FormTesting from "./FormTesting"
 
 export default function Home() {
   const { navigation } = useNavigationHook()
@@ -13,7 +13,7 @@ export default function Home() {
 
       {sbh(20)}
       <Button onPress={() => updateTheme(DefaultTheme)} text="Change to default" />
-      <ButtonsTesting />
+      <FormTesting />
       {sbh(20)}
       <Button onPress={() => navigation.navigate("Profile")} text="Go to Profile" />
       {sbh(20)}

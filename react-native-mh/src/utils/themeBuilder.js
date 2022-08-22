@@ -99,6 +99,7 @@ export const DefaultTheme = {
       offset: [0, 2],
       sides: ["bottom"],
     },
+    defaultHeading: "heading",
     borderRadius: 5,
     errorStyle: { marginTop: 2, fontSize: 12, fontWeight: "700" },
     leftError: false,
@@ -226,6 +227,7 @@ export const createTheme = data => {
       errorStyle: { marginTop: 2, fontSize: 12, fontWeight: "700" },
       leftError: false,
       leftErrorMarginHorizontal: 10,
+      defaultHeading: "heading",
       ...(data?.textInputStyles ?? {}),
       style: {
         paddingVertical: 0,
